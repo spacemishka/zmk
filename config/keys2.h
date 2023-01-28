@@ -68,9 +68,9 @@
 
 
 
-/* Keyboard o and Ö */
+/* Keyboard ö and Ö */
 
-#define O (ZMK_HID_USAGE(HID_USAGE_KEY, HID_USAGE_KEY_KEYBOARD_Ö))
+#define Ö (ZMK_HID_USAGE(HID_USAGE_KEY, HID_USAGE_KEY_KEYBOARD_Ö))
 
 /* Keyboard p and P */
 #define P (ZMK_HID_USAGE(HID_USAGE_KEY, HID_USAGE_KEY_KEYBOARD_P))

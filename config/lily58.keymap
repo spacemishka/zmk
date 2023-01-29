@@ -19,67 +19,8 @@
 
 #include <dt-bindings/zmk/ext_power.h>
 
-er Profiler
-GitHub
 
 
-Getting Started
-Features
-Keymaps
-Combos
-Conditional Layers
-Debouncing
-Displays
-Encoders
-RGB Underglow
-Backlight
-Battery Level
-Beta Testing
-Behaviors
-Codes
-Configuration
-Development
-RGB Underglow
-RGB underglow is a feature used to control "strips" of RGB LEDs. Most of the time this is called underglow and creates a glow underneath the board using a ring of LEDs around the edge, hence the name. However, this can be extended to be used to control anything from a single LED to a long string of LEDs anywhere on the keyboard.
-
-INFO
-RGB underglow can also be used for under-key lighting. If you have RGB LEDs on your keyboard, this is what you want. For PWM/single color LEDs, see Backlight.
-
-ZMK supports all the RGB LEDs supported by Zephyr. Here's the current list supported:
-
-WS2812-ish (WS2812B, WS2813, SK6812, or compatible)
-APA102
-LPD880x (LPD8803, LPD8806, or compatible)
-Of the compatible types, the WS2812 LED family is by far the most popular type. Currently each of these types of LEDs are expected to be run using SPI with a couple of exceptions.
-
-Here you can see the RGB underglow feature in action using WS2812 LEDs.
-
-
-Enabling RGB Underglow
-To enable RGB underglow on your board or shield, simply enable the CONFIG_ZMK_RGB_UNDERGLOW and CONFIG_*_STRIP configuration values in the .conf file for your board or shield. For example:
-
-CONFIG_ZMK_RGB_UNDERGLOW=y
-# Use the STRIP config specific to the LEDs you're using
-CONFIG_WS2812_STRIP=y
-
-See Configuration Overview for more instructions on how to use Kconfig.
-
-If your board or shield does not have RGB underglow configured, refer to Adding RGB Underglow to a Board.
-
-Configuring RGB Underglow
-See RGB underglow configuration.
-
-Adding RGB Underglow to a Board
-RGB underglow is always added to a board, not a shield. This is a consequence of needing to configure SPI to control the LEDs. If you have a shield with RGB underglow, you must add a boards/ directory within your shield folder to define the RGB underglow individually for each board that supports the shield. Inside the boards/ folder, you define a <board>.overlay for each different board. For example, the Kyria shield has a boards/nice_nano.overlay file that defines the RGB underglow for the nice_nano board specifically.
-
-nRF52-based boards
-With nRF52 boards, you can just use &spi1 and define the pins you want to use.
-
-To identify which pin number you need to put in the config you need do to a bit of math. You need the hardware port and run it through a function. 32 * X + Y = <Pin number> where X is first part of the hardware port "PX.01" and Y is the second part of the hardware port "P1.Y".
-
-(P1.13 would give you 32 * 1 + 13 = <45> and P0.15 would give you 32 * 0 + 15 = <15>)
-
-Here's an example on a definition that uses P0.06:
 
 #include <dt-bindings/led/led.h>
 

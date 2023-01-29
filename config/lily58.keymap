@@ -55,6 +55,11 @@
 
 
 / {
+chosen {
+
+        zmk,underglow = &led_strip;
+
+    };
 	keymap {
 		compatible = "zmk,keymap";
 

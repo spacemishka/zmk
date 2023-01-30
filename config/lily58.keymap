@@ -74,7 +74,7 @@ chosen {
                         &kp LALT &kp LGUI &mo LOWER  &kp SPACE  &kp RET  &mo RAISE  &kp BSPC &kp RGUI
 			>;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+			#sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 
 		lower_layer {
@@ -92,7 +92,7 @@ chosen {
                                               &trans            &trans       &trans    &trans   &trans    &mo DEFAULT    &trans    &trans
 			>;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+			#sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 
 		raise_layer {
@@ -110,7 +110,7 @@ chosen {
                         &trans  &trans  &trans    &trans   &trans    &mo DEFAULT      &trans    &trans
 			>;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+			#sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 	};
 };

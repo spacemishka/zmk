@@ -127,5 +127,6 @@ chosen {
 &kp LCTRL &kp Z  &kp X  &kp D    &kp D    &kp V  &kp RBKT 	&kp KP_MINUS   &kp K  &kp H    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
                         &kp RALT &kp LGUI &tog LOWER  &kp SPACE  &kp RET  &kp BSPC	&tog RAISE &kp RGUI
 			>;
+		};
 	};
 };

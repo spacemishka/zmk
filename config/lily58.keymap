@@ -90,7 +90,7 @@ chosen {
 &kp F1     &kp F2           &kp F3            &kp F4            &kp F5       &kp F6                       &kp F7    &kp F8    &kp F9          &kp F10   &kp F11   &kp F12
 &kp GRAVE  &kp EXCL         &kp AT            &kp HASH          &kp DOLLAR   &kp PRCNT                    &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR  &kp RPAR  &kp TILDE
 &bt BT_CLR     &bt BT_NXT           &bt BT_PRV            &bt BT_SEL 1           &bt BT_SEL 2       &trans    &trans   &trans    &trans    &kp MINUS &kp KP_PLUS     &kp LBRC  &kp RBRC  &kp PIPE
-                                              &trans            &trans       &tog LOWER    &trans   &trans    &mo DEFAULT    &trans    &trans
+                                              &trans            &tog COLEMAK       &tog LOWER    &trans   &trans    &mo DEFAULT    &trans    &trans
 			>;
 
 			#sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -125,7 +125,7 @@ chosen {
 &kp TAB   &kp Q  &kp W  &kp F    &kp P    &kp B                      &kp J  &kp L    &kp U     &kp Y   &kp COMMA    &kp LBKT
 &kp LSHFT &kp A  &kp R  &kp R    &kp G    &kp M                      &kp N  &kp E    &kp I     &kp O   &kp SEMI &kp SQT
 &kp LCTRL &kp Z  &kp X  &kp D    &kp D    &kp V  &kp RBKT 	&kp KP_MINUS   &kp K  &kp H    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                        &kp RALT &kp LGUI &tog LOWER  &kp SPACE  &kp RET  &kp BSPC	&tog RAISE &kp RGUI
+                        &kp RALT &tog COLEMAK &trans  &kp SPACE  &kp RET  &kp BSPC	&tog RAISE &kp RGUI
 			>;
 		};
 	};

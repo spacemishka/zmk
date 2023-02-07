@@ -19,6 +19,7 @@
 #define DEFAULT 0
 #define LOWER 1
 #define RAISE 2
+#define COLEMAK 3
 
 &spi1 {
   compatible = "nordic,nrf-spim";
@@ -112,5 +113,19 @@ chosen {
 
 			#sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
+		colemak_layer {
+// ------------------------------------------------------------------------------------------------------------
+// |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   ß   |
+// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   Ü   |
+// |  CTRL |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   Ö   |   Ä   |
+// | SHIFT |  Z  |  X  |  C   |  V   |  B   |  _   |  |  "["  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
+//                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
+			bindings = <
+&kp ESC   &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                     &kp N6 &kp N7   &kp N8    &kp N9  &kp N0   &kp MINUS
+&kp TAB   &kp Q  &kp W  &kp F    &kp P    &kp B                      &kp J  &kp L    &kp U     &kp Y   &kp COMMA    &kp LBKT
+&kp LSHFT &kp A  &kp R  &kp R    &kp G    &kp M                      &kp N  &kp E    &kp I     &kp O   &kp SEMI &kp SQT
+&kp LCTRL &kp Z  &kp X  &kp D    &kp D    &kp V  &kp RBKT 	&kp KP_MINUS   &kp K  &kp H    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+                        &kp RALT &kp LGUI &tog LOWER  &kp SPACE  &kp RET  &kp BSPC	&tog RAISE &kp RGUI
+			>;
 	};
 };

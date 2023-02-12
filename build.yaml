@@ -15,7 +15,7 @@
 include:
   - board: bluemicro840_v1
     shield: lily58_left
-  - board: nice_nano_v2
+  - board: bluemicro840_v1
     shield: lily58_right
   - board: bluemicro840_v1
     shield: settings_reset

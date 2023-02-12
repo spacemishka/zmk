@@ -22,7 +22,7 @@
 #define COLEMAK 3
 
 &spi1 {
-  compatible = "nordic,nrf-spim";
+  compatible = "bluemicro840,v1";
   status = "okay";
   mosi-pin = <6>;
   // Unused pins, needed for SPI definition, but not used by the ws2812 driver itself.

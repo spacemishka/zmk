@@ -126,7 +126,7 @@ chosen {
 &kp TAB   &kp Q  &kp W  &kp F    &kp P    &kp B                      &kp J  &kp L    &kp U     &kp Y   &kp COMMA    &kp LBKT
 &kp LSHFT &kp A  &kp R  &kp S   &kp T    &kp G                      &kp M  &kp N    &kp E     &kp I   &kp O &kp SQT
 &kp LCTRL &kp Z  &kp X  &kp D    &kp D    &kp V  &kp RBKT 	&kp KP_MINUS   &kp K  &kp H    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                        &kp RALT &tog COLEMAK &trans  &kp SPACE  &kp RET  &kp BSPC	&tog RAISE &kp RGUI
+                        &tog GAME &tog COLEMAK &trans  &kp SPACE  &kp RET  &kp BSPC	&tog RAISE &kp RGUI
 			>;
 		};
 		game_layer {

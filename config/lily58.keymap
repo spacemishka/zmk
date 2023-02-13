@@ -19,34 +19,9 @@
 #define DEFAULT 0
 #define LOWER 1
 #define RAISE 2
-#define COLEMAK 3
-#define GAME 4
+#define GAME 3
 
-&spi1 {
-  compatible = "nordic,nrf-spim";
-  status = "okay";
-  mosi-pin = <6>;
-  // Unused pins, needed for SPI definition, but not used by the ws2812 driver itself.
-  sck-pin = <5>;
-  miso-pin = <7>;
 
-  led_strip: ws2812@0 {
-    compatible = "worldsemi,ws2812-spi";
-    label = "WS2812";
-
-    /* SPI */
-    reg = <0>; /* ignored, but necessary for SPI bindings */
-    spi-max-frequency = <4000000>;
-
-    /* WS2812 */
-    chain-length = <12>; /* number of LEDs */
-    spi-one-frame = <0x70>;
-    spi-zero-frame = <0x40>;
-    color-mapping = <LED_COLOR_ID_GREEN
-                          LED_COLOR_ID_RED
-                          LED_COLOR_ID_BLUE>;
-  };
-};
 
 
 
@@ -70,10 +45,10 @@ chosen {
 //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
 			bindings = <
 &kp ESC   &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                     &kp N6 &kp N7   &kp N8    &kp N9  &kp N0   &kp MINUS
-&kp TAB   &kp Q  &kp W  &kp E    &kp R    &kp T                      &kp Y  &kp U    &kp I     &kp O   &kp P    &kp LBKT
-&kp LSHFT &kp A  &kp S  &kp D    &kp F    &kp G                      &kp H  &kp J    &kp K     &kp L   &kp SEMI &kp SQT
-&kp LCTRL &kp Z  &kp X  &kp C    &kp V    &kp B  &kp RBKT 	&kp KP_MINUS   &kp N  &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                        &kp RALT &kp LGUI &tog LOWER  &kp SPACE  &kp RET  &kp BSPC	&tog RAISE &kp RGUI
+&kp TAB   &kp Q  &kp W  &kp F    &kp P    &kp B                      &kp J  &kp L    &kp U     &kp Y   &kp COMMA    &kp LBKT
+&kp LSHFT &kp A  &kp R  &kp S   &kp T    &kp G                      &kp M  &kp N    &kp E     &kp I   &kp O &kp SQT
+&kp LCTRL &kp Z  &kp X  &kp D    &kp D    &kp V  &kp RBKT 	&kp KP_MINUS   &kp K  &kp H    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+                        &kp RALT &tog COLEMAK &trans  &kp SPACE  &kp RET  &kp BSPC	&tog RAISE &kp RGUI
 			>;
 
 			#sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -112,23 +87,9 @@ chosen {
                         &trans  &trans  &trans    &trans   &trans    &tog RAISE      &trans    &trans
 			>;
 
-			#sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+			#sensor-binding	s = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
-		colemak_layer {
-// ------------------------------------------------------------------------------------------------------------
-// |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   ß   |
-// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   Ü   |
-// |  CTRL |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   Ö   |   Ä   |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B   |  _   |  |  "["  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
-//                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
-			bindings = <
-&kp ESC   &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                     &kp N6 &kp N7   &kp N8    &kp N9  &kp N0   &kp MINUS
-&kp TAB   &kp Q  &kp W  &kp F    &kp P    &kp B                      &kp J  &kp L    &kp U     &kp Y   &kp COMMA    &kp LBKT
-&kp LSHFT &kp A  &kp R  &kp S   &kp T    &kp G                      &kp M  &kp N    &kp E     &kp I   &kp O &kp SQT
-&kp LCTRL &kp Z  &kp X  &kp D    &kp D    &kp V  &kp RBKT 	&kp KP_MINUS   &kp K  &kp H    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                        &kp RALT &tog COLEMAK &trans  &kp SPACE  &kp RET  &kp BSPC	&tog RAISE &kp RGUI
-			>;
-		};
+
 		game_layer {
 // ------------------------------------------------------------------------------------------------------------
 // |       |     |     |      |      |      |                   |      |       |       |      |       |       |

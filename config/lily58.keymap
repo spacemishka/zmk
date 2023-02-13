@@ -22,15 +22,10 @@
 #define GAME 3
 
 
-
-
-
-
-
 / {
 chosen {
 
-        zmk,underglow = &led_strip;
+        zmk;
 
     };
 	keymap {

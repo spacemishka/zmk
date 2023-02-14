@@ -23,8 +23,9 @@
 #define GAME 4
 
 
-{
-    macros {
+
+/ {
+macros {
         zed_em_kay: zed_em_kay {
             label = "ZM_zed_em_kay";
             compatible = "zmk,behavior-macro";
@@ -38,9 +39,6 @@
                 , <&macro_release &kp DEL>;
         };
     };
-};
-/ {
-
 	keymap {
 		compatible = "zmk,keymap";
 

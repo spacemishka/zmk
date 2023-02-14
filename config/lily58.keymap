@@ -55,7 +55,7 @@
                         &kp RALT &kp LGUI &tog LOWER  &kp SPACE  &kp RET  &kp BSPC	&tog RAISE &kp RGUI
 			>;
 
-			#sensor-bindings = <&zed_em_kay>;
+			
 		};
 
 		lower_layer {
@@ -73,7 +73,7 @@
                                               &tog GAME            &tog COLEMAK       &tog LOWER    &trans   &trans    &mo DEFAULT    &trans    &trans
 			>;
 
-			#sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+			
 		};
 
 		raise_layer {
@@ -91,7 +91,7 @@
                         &trans  &trans  &trans    &trans   &trans    &tog RAISE      &trans    &trans
 			>;
 
-			#sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+			
 		};
 		colemak_layer {
 // ------------------------------------------------------------------------------------------------------------
@@ -123,7 +123,7 @@
                         &trans  &trans  &trans    &trans   &trans    &tog RAISE      &trans    &trans
 			>;
 
-			#sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+			
 		};
 	};
 };

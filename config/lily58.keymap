@@ -22,6 +22,23 @@
 #define COLEMAK 3
 #define GAME 4
 
+
+{
+    macros {
+        zed_em_kay: zed_em_kay {
+            label = "ZM_zed_em_kay";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp CTRL>
+                , <&macro_press &kp ALT>
+                , <&macro_press &kp DEL>
+                , <&macro_release &kp CTRL>
+                , <&macro_release &kp ALT>
+                , <&macro_release &kp DEL>;
+        };
+    };
+};
 / {
 
 	keymap {
@@ -42,7 +59,7 @@
                         &kp RALT &kp LGUI &tog LOWER  &kp SPACE  &kp RET  &kp BSPC	&tog RAISE &kp RGUI
 			>;
 
-			#sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+			#sensor-bindings = <&zed_em_kay>;
 		};
 
 		lower_layer {

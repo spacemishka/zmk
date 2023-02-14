@@ -41,7 +41,8 @@ macros {
                 , <&macro_press &kp DEL>
                 , <&macro_release &kp CTRL>
                 , <&macro_release &kp ALT>
-                , <&macro_release &kp DEL>;
+                , <&macro_release &kp DEL>
+		;
         };
     };
 	keymap {

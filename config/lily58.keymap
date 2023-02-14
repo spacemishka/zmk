@@ -72,7 +72,7 @@
 &bt UNDER	&trans	&trans	 &trans	&trans       &trans    &trans   &trans    &trans    &kp MINUS &kp KP_PLUS     &kp LBRC  &kp RBRC  &kp PIPE
 			&tog GAME	 &tog COLEMAK       &tog LOWER    &trans   &trans    &mo DEFAULT    &trans    &trans
 			>;
-
+			#sensor-bindings = <&zed_em_kay>;
 			
 		};
 

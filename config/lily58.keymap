@@ -104,8 +104,8 @@
 &kp ESC   &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                     &kp N6 &kp N7   &kp N8    &kp N9  &kp N0   &kp MINUS
 &kp TAB   &kp Q  &kp W  &kp F    &kp P    &kp B                      &kp J  &kp L    &kp U     &kp Y   &kp COMMA    &kp LBKT
 &kp LSHFT &kp A  &kp R  &kp S   &kp T    &kp G                      &kp M  &kp N    &kp E     &kp I   &kp O &kp SQT
-&kp LCTRL &kp Z  &kp X  &kp D    &kp D    &kp V  &kp RBKT 	&kp KP_MINUS   &kp K  &kp H    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                        &kp RALT &tog COLEMAK &trans  &kp SPACE  &kp RET  &kp BSPC	&tog RAISE &kp RGUI
+&kp LCTRL &kp Z  &kp X  &kp C    &kp D    &kp V  &kp RBKT 	&kp FSLH   &kp K  &kp H    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+                        &kp RALT &tog COLEMAK &trans  &kp SPACE  &kp RET  &kp BSPC	&tog RAISE &kp NUBS
 			>;
 		};
 		game_layer {

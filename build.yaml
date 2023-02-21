@@ -19,3 +19,4 @@ include:
     shield: lily58_right
   - board: bluemicro840_v1
     shield: settings_reset
+    

@@ -125,3 +125,4 @@ When opening a pull request with your changes, please:
   - Screenshots or logs that support understanding the change.
 
 [discord-invite]: https://zmk.dev/community/discord/invite
+

@@ -67,11 +67,12 @@
 // |       |     |     |      |      |      |        |  |       |      |  _    |  +    |  {   |   }   |  "|"  |
 //                     |      |      |      |        |  |       |      |       |       |
 			bindings = <
-&bt BT_CLR &bt BT_SEL 0     &bt BT_SEL 1      &bt BT_SEL 2      &bt BT_SEL 3 &bt BT_SEL 4                 &bt BT_SEL 4    &trans    &trans          &trans    &trans    &zed_em_kay
-&kp F1     &kp F2           &kp F3            &kp F4            &kp F5       &kp F6                       &kp F7    &kp F8    &kp F9          &kp F10   &kp F11   &kp F12
-&kp FSLH  &kp POUND         &kp AT            &kp HASH          &kp DOLLAR   &kp PRCNT                    &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR  &kp RPAR  &kp TILDE
-&kp CAPS  &kp K_SLEEP	&kp C_SLEEP	 &kp NON_US_HASH	&trans       &trans    &trans   &trans    &trans    &kp MINUS &kp KP_PLUS     &kp LBRC  &kp RBRC  &kp PIPE
-			&tog GAME	 &tog COLEMAK       &tog LOWER    &trans   &trans    &mo DEFAULT    &trans    &trans
+&bt BT_CLR	&bt BT_SEL 0 	&bt BT_SEL 1 	&bt BT_SEL 2 	&bt BT_SEL 3	&bt BT_SEL 4	&bt BT_SEL 4	&trans 	&trans 	&trans 	&kp KP_DIVIDE	&zed_em_kay	
+&trans 	&trans 	&kp UP	&trans 	&trans 	&trans 	&trans 	&kp 7	&kp 8	&kp 9	&kp KP_MULTIPLY	&trans	
+&trans 	&kp LEFT	&kp DOWN	&kp RIGHT	&trans 	&trans 	&trans 	&kp 4	&kp 5	&kp 6	&kp KP_MINUS	&kp trans	
+&trans 	&kp K_SLEEP	&kp C_SLEEP	&trans 	&trans	&trans 	&trans 	&kp 1	&kp 2	&kp 3	&kp KP_PLUS	&kp LBRC	&kp RBRC
+			&tog GAME	 &tog COLEMAK 	&tog LOWER	&trans 	&mo DEFAULT 	&kp 0	 &kp COMMA	&kp RET		
+
 			>;
 
 			#sensor-bindings = <&zed_em_kay>;

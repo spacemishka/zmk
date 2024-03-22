@@ -3,13 +3,12 @@
  *
  * SPDX-License-Identifier: MIT
  */
-
+//#include <dt-bindings/zmk/rgb.h>
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-//#include <dt-bindings/zmk/rgb.h>
-#include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/keys.h>
+
 //#include <dt-bindings/led/led.h>
 
 #define DEFAULT 0
@@ -18,115 +17,116 @@
 #define COLEMAK 3
 #define GAME 4
 
-
-
 / {
+    macros {
+        zed_em_kay: zed_em_kay {
+            label = "ZM_zed_em_kay";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_press>,
+                <&kp RALT>,
+                <&macro_press>,
+                <&kp DEL>,
+                <&macro_release>,
+                <&kp LCTRL>,
+                <&macro_release>,
+                <&kp RALT>,
+                <&macro_release>,
+                <&kp DEL>;
+        };
+    };
 
-	macros {
-        	zed_em_kay: zed_em_kay {
-            	label = "ZM_zed_em_kay";
-            	compatible = "zmk,behavior-macro";
-            	#binding-cells = <0>;
-            	bindings
-                	= <&macro_press &kp LCTRL >
-                	, <&macro_press &kp RALT>
-                	, <&macro_press &kp DEL>
-			, <&macro_release &kp LCTRL>
-                	, <&macro_release &kp RALT>
-                	, <&macro_release &kp DEL>
-			;
-        }	;
-    	};
+    keymap {
+        compatible = "zmk,keymap";
 
-	keymap {
-		compatible = "zmk,keymap";
+        default_layer {
+            // ------------------------------------------------------------------------------------------------------------
+            // |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   ß   |
+            // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   Ü   |
+            // |  CTRL |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   Ö   |   Ä   |
+            // | SHIFT |  Z  |  X  |  C   |  V   |  B   |  _   |  |  "["  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
+            //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
 
-		default_layer {
-// ------------------------------------------------------------------------------------------------------------
-// |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   ß   |
-// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   Ü   |
-// |  CTRL |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   Ö   |   Ä   |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B   |  _   |  |  "["  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
-//                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
-			bindings = <
-&kp ESC   &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                     &kp N6 &kp N7   &kp N8    &kp N9  &kp N0   &kp MINUS
-&kp TAB   &kp Q  &kp W  &kp E    &kp R    &kp T                      &kp Y  &kp U    &kp I     &kp O   &kp P    &kp LBKT
-&kp LSHFT &kp A  &kp S  &kp D    &kp F    &kp G                      &kp H  &kp J    &kp K     &kp L   &kp SEMI &kp SQT
-&kp LCTRL &kp Z  &kp X  &kp C    &kp V    &kp B  &kp RBKT 	&kp FSLH   &kp N  &kp M    &kp COMMA &kp DOT &kp NON_US_HASH &kp RSHFT
-                        &kp RALT &kp LGUI &tog LOWER  &kp SPACE  &kp RET  &kp BSPC	&tog RAISE &kp NUBS
-			>;
+            bindings = <
+&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                             &kp N6    &kp N7      &kp N8     &kp N9   &kp N0           &kp MINUS
+&kp TAB    &kp Q   &kp W   &kp E     &kp R     &kp T                              &kp Y     &kp U       &kp I      &kp O    &kp P            &kp LBKT
+&kp LSHFT  &kp A   &kp S   &kp D     &kp F     &kp G                              &kp H     &kp J       &kp K      &kp L    &kp SEMI         &kp SQT
+&kp LCTRL  &kp Z   &kp X   &kp C     &kp V     &kp B       &kp RBKT     &kp FSLH  &kp N     &kp M       &kp COMMA  &kp DOT  &kp NON_US_HASH  &kp RSHFT
+                           &kp RALT  &kp LGUI  &tog LOWER  &kp SPACE    &kp RET   &kp BSPC  &tog RAISE  &kp NUBS
+            >;
+        };
 
-			
-		};
+        lower_layer {
+            // ------------------------------------------------------------------------------------------------------------
+            // | BTCLR | BT1 | BT2 |  BT3 |  BT4 |  BT5 |                   |      |       |       |      |       |       |
+            // |  F1   |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  F7  |  F8   |  F9   |  F10 |  F11  |  F12  |
+            // |   `   |  !  |  @  |  #   |  $   |  %   |                   |  ^   |  &    |  *    |  (   |   )   |   ~   |
+            // |       |     |     |      |      |      |        |  |       |      |  _    |  +    |  {   |   }   |  "|"  |
+            //                     |      |      |      |        |  |       |      |       |       |
 
-		lower_layer {
-// ------------------------------------------------------------------------------------------------------------
-// | BTCLR | BT1 | BT2 |  BT3 |  BT4 |  BT5 |                   |      |       |       |      |       |       |
-// |  F1   |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  F7  |  F8   |  F9   |  F10 |  F11  |  F12  |
-// |   `   |  !  |  @  |  #   |  $   |  %   |                   |  ^   |  &    |  *    |  (   |   )   |   ~   |
-// |       |     |     |      |      |      |        |  |       |      |  _    |  +    |  {   |   }   |  "|"  |
-//                     |      |      |      |        |  |       |      |       |       |
-			bindings = <
-&bt BT_CLR	&bt BT_SEL 0 	&bt BT_SEL 1 	&bt BT_SEL 2 	&bt BT_SEL 3	&bt BT_SEL 4	&bt BT_SEL 4	&trans 	&trans 	&trans 	&kp KP_DIVIDE	&zed_em_kay	
-&trans 	&trans 	&kp UP	&trans 	&trans 	&trans 	&trans 	&kp N7	&kp N8	&kp N9	&kp KP_MULTIPLY	&trans	
-&trans 	&kp LEFT	&kp DOWN	&kp RIGHT	&trans 	&trans 	&trans 	&kp N4	&kp N5	&kp N6	&kp KP_MINUS	&trans	
-&trans 	&kp K_SLEEP	&kp C_SLEEP	&trans 	&trans	&trans 	&trans 	&kp N1	&kp N2	&kp N3	&kp KP_PLUS	&kp LBRC	&kp RBRC
-			&tog GAME	 &tog COLEMAK 	&tog LOWER	&trans 	&mo DEFAULT 	&kp N0	 &kp COMMA	&kp RET		
+            bindings = <
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                         &bt BT_SEL 4  &trans   &trans       &trans    &kp KP_DIVIDE    &zed_em_kay
+&sys_reset  &trans        &kp UP        &trans        &trans        &trans                               &trans        &kp N7   &kp N8       &kp N9    &kp KP_MULTIPLY  &trans
+&trans      &kp LEFT      &kp DOWN      &kp RIGHT     &trans        &trans                               &trans        &kp N4   &kp N5       &kp N6    &kp KP_MINUS     &trans
+&trans      &kp K_SLEEP   &kp C_SLEEP   &trans        &trans        &trans        &trans         &kp N1  &kp N2        &kp N3   &kp KP_PLUS  &kp LBRC  &kp RBRC         &tog GAME
+                                        &tog COLEMAK  &tog LOWER    &trans        &mo DEFAULT    &kp N0  &kp COMMA     &kp RET
+            >;
 
-			>;
+            #sensor-bindings = <&zed_em_kay>;
+        };
 
-			#sensor-bindings = <&zed_em_kay>;
-			
-		};
+        raise_layer {
+            // ------------------------------------------------------------------------------------------------------------
+            // |       |     |     |      |      |      |                   |      |       |       |      |       |       |
+            // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
+            // |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |      |   <-  |   v   |  ^   |  ->   |       |
+            // |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +   |   -   |   =   |  [   |   ]   |   \   |
+            //                     |      |      |      |        |  |       |      |       |       |
 
-		raise_layer {
-// ------------------------------------------------------------------------------------------------------------
-// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
-// |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
-// |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |      |   <-  |   v   |  ^   |  ->   |       |
-// |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +   |   -   |   =   |  [   |   ]   |   \   |
-//                     |      |      |      |        |  |       |      |       |       |
-			bindings = <
-&kp C_MUTE	&kp C_VOL_DN	&kp C_VOL_UP	&kp C_PP	&kp C_PREV	&kp C_NEXT                       &trans      &trans    &trans    &trans   &trans    &trans
-&kp GRAVE &kp N1 &kp N2 &kp N3  &kp N4  &kp N5                       &kp N6      &kp N7    &kp N8    &kp N9   &kp N0    &trans
-&kp F1    &kp F2 &kp F3 &kp F4  &kp F5  &kp F6                       &trans      &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT &trans
-&kp F7    &kp F8 &kp F9 &kp F10 &kp F11 &kp F12   &trans   &trans    &kp KP_PLUS &kp MINUS &kp EQUAL &kp LBKT &kp RBKT  &kp BSLH
-                        &trans  &trans  &trans    &trans   &trans    &tog RAISE      &trans    &trans
-			>;
+            bindings = <
+&kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PP  &kp C_PREV  &kp C_NEXT                    &trans       &trans     &trans     &trans    &trans     &trans
+&kp GRAVE   &kp N1        &kp N2        &kp N3    &kp N4      &kp N5                        &kp N6       &kp N7     &kp N8     &kp N9    &kp N0     &trans
+&kp F1      &kp F2        &kp F3        &kp F4    &kp F5      &kp F6                        &trans       &kp LEFT   &kp DOWN   &kp UP    &kp RIGHT  &trans
+&kp F7      &kp F8        &kp F9        &kp F10   &kp F11     &kp F12     &trans    &trans  &kp KP_PLUS  &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT   &kp BSLH
+                                        &trans    &trans      &trans      &trans    &trans  &tog RAISE   &trans     &trans
+            >;
+        };
 
-			
-		};
-		colemak_layer {
-// ------------------------------------------------------------------------------------------------------------
-// |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   ß   |
-// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   Ü   |
-// |  CTRL |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   Ö   |   Ä   |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B   |  _   |  |  "["  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
-//                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
-			bindings = <
-&kp ESC   &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                     &kp N6 &kp N7   &kp N8    &kp N9  &kp N0   &kp MINUS
-&kp TAB   &kp Q  &kp W  &kp F    &kp P    &kp B                      &kp J  &kp L    &kp U     &kp Y   &kp COMMA    &kp LBKT
-&kp LSHFT &kp A  &kp R  &kp S   &kp T    &kp G                      &kp M  &kp N    &kp E     &kp I   &kp O &kp SQT
-&kp LCTRL &kp Z  &kp X  &kp C    &kp D    &kp V  &kp RBKT 	&kp FSLH   &kp K  &kp H    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                        &kp RALT &tog COLEMAK &trans  &kp SPACE  &kp RET  &kp BSPC	&tog RAISE &kp NUBS
-			>;
-		};
-		game_layer {
-// ------------------------------------------------------------------------------------------------------------
-// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
-// |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
-// |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |      |   <-  |   v   |  ^   |  ->   |       |
-// |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +   |   -   |   =   |  [   |   ]   |   \   |
-//                     |      |      |      |        |  |       |      |       |       |
-			bindings = <
-&kp F1    &kp F2 &kp F3 &kp F4  &kp F5  &kp F6                       &trans      &trans    &trans    &trans   &trans    &trans
-&kp F7    &kp F8 &kp F9 &kp F10 &kp F11 &kp F12                       &kp N6      &kp N7    &kp N8    &kp N9   &kp N0    &trans
-&kp F13    &kp F14 &kp F15 &kp F16  &kp F17  &kp F18                       &trans      &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT &trans
-&kp F19    &kp F20 &kp F21 &kp F22 &kp 23 &kp F24   &trans   &trans    &kp KP_PLUS &kp MINUS &kp EQUAL &kp LBKT &kp RBKT  &kp BSLH
-                        &trans  &trans  &trans    &trans   &trans    &tog RAISE      &trans    &trans
-			>;
+        colemak_layer {
+            // ------------------------------------------------------------------------------------------------------------
+            // |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   ß   |
+            // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   Ü   |
+            // |  CTRL |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   Ö   |   Ä   |
+            // | SHIFT |  Z  |  X  |  C   |  V   |  B   |  _   |  |  "["  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
+            //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
 
-			
-		};
-	};
+            bindings = <
+&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4        &kp N5                         &kp N6    &kp N7      &kp N8     &kp N9   &kp N0     &kp MINUS
+&kp TAB    &kp Q   &kp W   &kp F     &kp P         &kp B                          &kp J     &kp L       &kp U      &kp Y    &kp COMMA  &kp LBKT
+&kp LSHFT  &kp A   &kp R   &kp S     &kp T         &kp G                          &kp M     &kp N       &kp E      &kp I    &kp O      &kp SQT
+&kp LCTRL  &kp Z   &kp X   &kp C     &kp D         &kp V   &kp RBKT     &kp FSLH  &kp K     &kp H       &kp COMMA  &kp DOT  &kp FSLH   &kp RSHFT
+                           &kp RALT  &tog COLEMAK  &trans  &kp SPACE    &kp RET   &kp BSPC  &tog RAISE  &kp NUBS
+            >;
+        };
+
+        game_layer {
+            // ------------------------------------------------------------------------------------------------------------
+            // |       |     |     |      |      |      |                   |      |       |       |      |       |       |
+            // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
+            // |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |      |   <-  |   v   |  ^   |  ->   |       |
+            // |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +   |   -   |   =   |  [   |   ]   |   \   |
+            //                     |      |      |      |        |  |       |      |       |       |
+
+            bindings = <
+&kp F1   &kp F2   &kp F3   &kp F4   &kp F5   &kp F6                     &trans       &trans     &trans     &trans    &trans     &trans
+&kp F7   &kp F8   &kp F9   &kp F10  &kp F11  &kp F12                    &kp N6       &kp N7     &kp N8     &kp N9    &kp N0     &trans
+&kp F13  &kp F14  &kp F15  &kp F16  &kp F17  &kp F18                    &trans       &kp LEFT   &kp DOWN   &kp UP    &kp RIGHT  &trans
+&kp F19  &kp F20  &kp F21  &kp F22  &kp 23   &kp F24  &trans    &trans  &kp KP_PLUS  &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT   &kp BSLH
+                           &trans   &trans   &trans   &trans    &trans  &tog RAISE   &trans     &trans
+            >;
+        };
+    };
 };

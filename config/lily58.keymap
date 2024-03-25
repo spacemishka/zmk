@@ -72,7 +72,7 @@
 &sys_reset  &trans        &kp UP        &trans        &trans        &trans                          &trans           &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_MULTIPLY  &trans
 &trans      &kp LEFT      &kp DOWN      &kp RIGHT     &trans        &trans                          &trans           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MINUS     &trans
 &trans      &kp K_SLEEP   &kp C_SLEEP   &trans        &trans        &trans  &trans         &trans   &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_PLUS      &tog GAME
-                                        &tog COLEMAK  &tog LOWER    &trans  &mo DEFAULT    &kp RET  &kp COMMA        &kp RET
+                                        &tog COLEMAK  &tog 2        &to 0   &mo DEFAULT    &kp RET  &kp COMMA        &kp RET
             >;
 
             #sensor-bindings = <&zed_em_kay>;
@@ -91,7 +91,7 @@
 &kp GRAVE   &kp N1        &kp N2        &kp N3    &kp N4      &kp N5                        &kp N6       &kp N7     &kp N8     &kp N9    &kp N0     &trans
 &kp F1      &kp F2        &kp F3        &kp F4    &kp F5      &kp F6                        &trans       &kp LEFT   &kp DOWN   &kp UP    &kp RIGHT  &trans
 &kp F7      &kp F8        &kp F9        &kp F10   &kp F11     &kp F12     &trans    &trans  &kp KP_PLUS  &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT   &kp BSLH
-                                        &trans    &trans      &trans      &trans    &trans  &tog RAISE   &trans     &trans
+                                        &trans    &to 3       &to 1       &trans    &trans  &trans       &trans     &trans
             >;
         };
 
@@ -104,11 +104,11 @@
             //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
 
             bindings = <
-&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4        &kp N5                         &kp N6    &kp N7      &kp N8     &kp N9   &kp N0     &kp MINUS
-&kp TAB    &kp Q   &kp W   &kp F     &kp P         &kp B                          &kp J     &kp L       &kp U      &kp Y    &kp COMMA  &kp LBKT
-&kp LSHFT  &kp A   &kp R   &kp S     &kp T         &kp G                          &kp M     &kp N       &kp E      &kp I    &kp O      &kp SQT
-&kp LCTRL  &kp Z   &kp X   &kp C     &kp D         &kp V   &kp RBKT     &kp FSLH  &kp K     &kp H       &kp COMMA  &kp DOT  &kp FSLH   &kp RSHFT
-                           &kp RALT  &tog COLEMAK  &trans  &kp SPACE    &kp RET   &kp BSPC  &tog RAISE  &kp NUBS
+&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4  &kp N5                         &kp N6    &kp N7      &kp N8     &kp N9   &kp N0     &kp MINUS
+&kp TAB    &kp Q   &kp W   &kp F     &kp P   &kp B                          &kp J     &kp L       &kp U      &kp Y    &kp COMMA  &kp LBKT
+&kp LSHFT  &kp A   &kp R   &kp S     &kp T   &kp G                          &kp M     &kp N       &kp E      &kp I    &kp O      &kp SQT
+&kp LCTRL  &kp Z   &kp X   &kp C     &kp D   &kp V   &kp RBKT     &kp FSLH  &kp K     &kp H       &kp COMMA  &kp DOT  &kp FSLH   &kp RSHFT
+                           &kp RALT  &tog 4  &to 2   &kp SPACE    &kp RET   &kp BSPC  &tog RAISE  &kp NUBS
             >;
         };
 
@@ -125,7 +125,7 @@
 &kp F7   &kp F8   &kp F9   &kp F10  &kp F11  &kp F12                    &kp N6       &kp N7     &kp N8     &kp N9    &kp N0     &trans
 &kp F13  &kp F14  &kp F15  &kp F16  &kp F17  &kp F18                    &trans       &kp LEFT   &kp DOWN   &kp UP    &kp RIGHT  &trans
 &kp F19  &kp F20  &kp F21  &kp F22  &kp F23  &kp F24  &trans    &trans  &kp KP_PLUS  &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT   &kp BSLH
-                           &trans   &trans   &trans   &trans    &trans  &tog RAISE   &trans     &trans
+                           &trans   &trans   &to 3    &trans    &trans  &trans       &trans     &trans
             >;
         };
     };

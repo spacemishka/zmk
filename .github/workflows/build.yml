@@ -21,6 +21,7 @@ jobs:
     needs: compile-matrix
     strategy:
       matrix:
+        version: [16, 20]
         include: ${{ fromJSON(needs.compile-matrix.outputs.include-list) }}
     steps:
       - name: Checkout

@@ -12,7 +12,6 @@
 #     shield: reviung41
 #
 ---
-
 include:
   - board: bluemicro840_v1
     shield: lily58_left

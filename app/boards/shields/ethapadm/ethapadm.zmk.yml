@@ -1,0 +1,12 @@
+file_format: "1"
+id: ethapadm
+name: Sub-Etha Pad M
+type: shield
+url: https://github.com/piit79/Sub-Etha-Pad
+requires: [pro_micro]
+exposes: [i2c_oled]
+features:
+  - keys
+  - display
+  - encoder
+siblings: []

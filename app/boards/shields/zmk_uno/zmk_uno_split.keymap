@@ -14,14 +14,9 @@
 
 // Uncomment the following lines if using the "Direct Wire" jumper to switch the matrix to a direct wire.
 
-
-// &kscan_direct { status = "okay"; };
-// &kscan_matrix { status = "disabled"; };
-
 // / {
 //     chosen {
-//         zmk,matrix-transform = &split_direct_matrix_transform;
-//         zmk,kscan = &kscan_direct;
+//         zmk,physical-layout = &direct_physical_layout;
 //     };
 // };
 
@@ -31,6 +26,7 @@
         compatible = "zmk,keymap";
 
         default_layer {
+            display-name = "Default Layer";
             bindings = <
                 &kp A &bl BL_TOG
                 &rgb_ug RGB_EFF &bt BT_CLR

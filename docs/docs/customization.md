@@ -28,7 +28,7 @@ Refer to the [Configuration](/docs/config) documentation for more details on thi
 ## Keymap
 
 Once you have the basic user config completed, you can find the keymap file in `config/<keyboard>.keymap` and customize from there.
-Refer to the [Keymap](features/keymaps.mdx) documentation to learn more.
+Refer to the [Keymaps](keymaps/index.mdx) documentation to learn more.
 
 ## Publishing
 
@@ -40,31 +40,31 @@ If you need to, a review of [Learn The Basics Of Git In Under 10 Minutes](https:
 :::
 
 :::note
-It is also possible to build firmware locally on your computer by following the [toolchain setup](development/setup.mdx) and
-[building instructions](development/build-flash.mdx), which includes pointers to
-[building using your `zmk-config` folder](development/build-flash.mdx#building-from-zmk-config-folder).
+It is also possible to build firmware locally on your computer by following the [toolchain setup](development/local-toolchain/setup/index.md) and
+[building instructions](development/local-toolchain/build-flash.mdx), which includes pointers to
+[building using your `zmk-config` folder](development/local-toolchain/build-flash.mdx#building-from-zmk-config-folder).
 :::
 
 ## Flashing Your Changes
 
 For normal keyboards, follow the same flashing instructions as before to flash your updated firmware.
 
-For split keyboards, only the central (left) side will need to be reflashed if you are just updating your keymap.
-More troubleshooting information for split keyboards can be found [here](troubleshooting.md#split-keyboard-halves-unable-to-pair).
+For [split keyboards](features/split-keyboards.md#building-and-flashing-firmware), only the central (left) side will need to be reflashed if you are just updating your keymap.
+More troubleshooting information for split keyboards can be found [here](troubleshooting/connection-issues.mdx#split-keyboard-parts-unable-to-pair).
 
 ## Building Additional Keyboards
 
-You can build additional keyboards with GitHub actions by appending them to `build.yml` in your `zmk-config` folder. For instance assume that we have set up a Corne shield with nice!nano during [initial setup](user-setup.mdx) and we want to add a Lily58 shield with nice!nano v2. The following is an example `build.yaml` file that would accomplish that:
+You can build additional keyboards with GitHub actions by appending them to `build.yaml` in your `zmk-config` folder. For instance assume that we have set up a Corne shield with nice!nano during [initial setup](user-setup.mdx) and we want to add a Lily58 shield with nice!nano v2. The following is an example `build.yaml` file that would accomplish that:
 
 ```yaml
 include:
-  - board: nice_nano
+  - board: nice_nano@1
     shield: corne_left
-  - board: nice_nano
+  - board: nice_nano@1
     shield: corne_right
-  - board: nice_nano_v2
+  - board: nice_nano
     shield: lily58_left
-  - board: nice_nano_v2
+  - board: nice_nano
     shield: lily58_right
 ```
 

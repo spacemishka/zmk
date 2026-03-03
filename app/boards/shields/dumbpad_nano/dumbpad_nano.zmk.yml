@@ -1,0 +1,11 @@
+file_format: "1"
+id: dumbpad_nano
+name: Dumbpad (nice!nano)
+type: shield
+url: https://github.com/imchipwood/dumbpad
+requires: [pro_micro]
+features:
+  - keys
+  - encoder
+siblings:
+  - dumbpad_nano

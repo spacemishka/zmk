@@ -6,14 +6,43 @@
 /zephyr
 /zmk-config
 /build
+/build-*/
 
 # macOS
 *.DS_Store
 
+# Windows
+Thumbs.db
+Desktop.ini
+
 # Python
-__pycache__
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
 .python-version
-.venv
+.venv/
+venv/
+env/
+ENV/
 
 # clangd
 app/.cache/
+
+# Build artifacts
+*.uf2
+*.hex
+*.bin
+*.elf
+*.map
+
+# Editor/IDE
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# Zephyr
+.cache/
+*.pyc

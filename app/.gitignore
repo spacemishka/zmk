@@ -1,2 +1,19 @@
 build/
+build-*/
 node_modules/
+
+# Build artifacts
+*.uf2
+*.hex
+*.bin
+*.elf
+*.map
+*.stat
+
+# Zephyr cache
+.cache/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo

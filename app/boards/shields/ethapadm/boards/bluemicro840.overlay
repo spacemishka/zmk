@@ -1,13 +1,24 @@
 #include <dt-bindings/led/led.h>
 
+/* Disable UART on BlueMicro840 to free encoder pins (D0=P0.08, D1=P0.06) */
+&pro_micro_serial {
+    status = "disabled";
+};
+
+/* Disable spi3 - BlueMicro840 doesn't have it */
+&spi3 {
+    status = "disabled";
+};
+
 &pinctrl {
-    spi3_default: spi3_default {
+    /* Override the default spi1 pinctrl to use P1.06 for RGB */
+    spi1_default: spi1_default {
         group1 {
             psels = <NRF_PSEL(SPIM_MOSI, 1, 6)>;
         };
     };
 
-    spi3_sleep: spi3_sleep {
+    spi1_sleep: spi1_sleep {
         group1 {
             psels = <NRF_PSEL(SPIM_MOSI, 1, 6)>;
             low-power-enable;
@@ -15,23 +26,21 @@
     };
 };
 
-&spi3 {
+&spi1 {
     compatible = "nordic,nrf-spim";
     status = "okay";
 
-    pinctrl-0 = <&spi3_default>;
-    pinctrl-1 = <&spi3_sleep>;
+    pinctrl-0 = <&spi1_default>;
+    pinctrl-1 = <&spi1_sleep>;
     pinctrl-names = "default", "sleep";
 
     led_strip: ws2812@0 {
         compatible = "worldsemi,ws2812-spi";
 
-        /* SPI */
-        reg = <0>; /* ignored, but necessary for SPI bindings */
+        reg = <0>;
         spi-max-frequency = <4000000>;
 
-        /* WS2812 */
-        chain-length = <8>; /* 8 RGB underglow LEDs */
+        chain-length = <8>;
         spi-one-frame = <0x70>;
         spi-zero-frame = <0x40>;
 

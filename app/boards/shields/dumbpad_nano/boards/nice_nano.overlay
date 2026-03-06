@@ -1,0 +1,4 @@
+/* Disable UART on nice!nano to free encoder pins (D0=P0.08, D1=P0.06) */
+&pro_micro_serial {
+    status = "disabled";
+};

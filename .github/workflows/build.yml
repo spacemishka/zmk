@@ -21,9 +21,12 @@ permissions: {}
 
 jobs:
   prepare:
+    runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
   build:
     if: ${{ always() }}
     runs-on: ubuntu-latest
